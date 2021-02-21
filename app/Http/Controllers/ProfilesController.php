@@ -36,8 +36,8 @@ class ProfilesController extends Controller
             'image' => '',
         ]);
 
-        $user->fill($data);
-        $user->save();
+        auth()->user()->profile->update($data);
+
         return redirect('/profile/{{$user->id}}');
     }
 
